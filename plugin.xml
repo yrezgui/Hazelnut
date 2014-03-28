@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.yrezgui.hazelnut"
+      version="0.1.0">
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+
+  <name>Hazelnut</name>
+  <description>A phonegap plugin to display files from a URL.</description>
+  <keywords>Cordova, Files, Documents, Pdf</keywords>
+  <repo>https://github.com/yrezgui/Hazelnut.git</repo>
+
+  <license>Apache 2.0</license>
+
+  <js-module src="www/Hazelnut.js" name="Hazelnut">
+    <clobbers target="hazelnutOpen" />
+  </js-module>
+
+	<platform name="ios">
+		
+		<config-file target="config.xml" parent="/*">
+			<feature name="Hazelnut">
+				<param name="ios-package" value="Hazelnut"/>
+			</feature>
+		</config-file>
+
+    <framework src="QuickLook.framework" />
+
+		<source-file src="src/ios/Hazelnut.m" />
+
+		<header-file src="src/ios/Hazelnut.h" />
+
+	</platform>
+
+
+</plugin>
