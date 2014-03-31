@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
+
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="com.yrezgui.hazelnut"
-      version="0.1.1">
+ id="com.yrezgui.hazelnut"
+ version="0.1.1">
 
   <engines>
     <engine name="cordova" version=">=3.0.0" />
@@ -19,21 +19,18 @@
     <clobbers target="hazelnutOpen" />
   </js-module>
 
-	<platform name="ios">
-		
-		<config-file target="config.xml" parent="/*">
-			<feature name="Hazelnut">
-				<param name="ios-package" value="Hazelnut"/>
-			</feature>
-		</config-file>
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="Hazelnut">
+        <param name="ios-package" value="Hazelnut"/>
+      </feature>
+    </config-file>
 
     <framework src="QuickLook.framework" />
+    <source-file src="src/ios/Hazelnut.m" />
+    <header-file src="src/ios/Hazelnut.h" />
 
-		<source-file src="src/ios/Hazelnut.m" />
-
-		<header-file src="src/ios/Hazelnut.h" />
-
-	</platform>
-
+  </platform>
 
 </plugin>
