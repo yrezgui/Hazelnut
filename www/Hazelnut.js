@@ -1,10 +1,10 @@
-var process = function (filename, url, successCallback, errorCallback) {
+var process = function (filename, uri, successCallback, errorCallback) {
   if(!filename) {
-    filename = url.split('.').pop();
+    filename = uri.split('/').pop();
   }
   
   return cordova.exec(successCallback, errorCallback, 'Hazelnut', 'Open', [{
-    url: url,
+    uri: uri,
     filename: filename
   }]);
 };
