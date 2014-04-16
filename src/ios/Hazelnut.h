@@ -7,7 +7,7 @@
 
 @interface Hazelnut : CDVPlugin <QLPreviewControllerDelegate, QLPreviewControllerDataSource, QLPreviewItem>
 
-@property (strong, nonatomic) NSURL* fileUrl;
+@property (strong, nonatomic) NSURL* fileUri;
 @property (readonly) NSURL* previewItemURL;
 
 @property (strong, nonatomic) NSString* filename;

@@ -14,12 +14,12 @@
         
         NSDictionary* dict  = [command.arguments objectAtIndex:0];
         
-        NSString* fullpath  = dict[@"url"];
+        NSString* fullpath  = dict[@"uri"];
         NSString* filename  = dict[@"filename"];
 
-        NSURL* tmpFileUrl   = [[NSURL alloc] initFileURLWithPath:fullpath];
+        NSURL* tmpFileUri   = [[NSURL alloc] initFileURLWithPath:fullpath];
 
-        weakSelf.fileUrl    = tmpFileUrl;
+        weakSelf.fileUri    = tmpFileUri;
         weakSelf.filename   = filename;
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -52,7 +52,7 @@
 
 - (NSURL*)previewItemURL
 {
-    return self.fileUrl;
+    return self.fileUri;
 }
 
 - (NSString*)previewItemTitle
