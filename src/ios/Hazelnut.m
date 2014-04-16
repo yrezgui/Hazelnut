@@ -12,17 +12,15 @@
     dispatch_queue_t asyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(asyncQueue, ^{
         
-        NSDictionary* dict = [command.arguments objectAtIndex:0];
+        NSDictionary* dict  = [command.arguments objectAtIndex:0];
         
-        NSString* urlStr = dict[@"url"];
-        NSString* filename = dict[@"filename"];
+        NSString* fullpath  = dict[@"url"];
+        NSString* filename  = dict[@"filename"];
 
-        NSURL* url = [NSURL URLWithString:urlStr];
-        NSData* dat = [NSData dataWithContentsOfURL:url];
-        NSString* path = [NSTemporaryDirectory() stringByAppendingPathComponent: filename];
-        NSURL* tmpFileUrl = [[NSURL alloc] initFileURLWithPath:path];
-        [dat writeToURL:tmpFileUrl atomically:YES];
-        weakSelf.fileUrl = tmpFileUrl;
+        NSURL* tmpFileUrl   = [[NSURL alloc] initFileURLWithPath:fullpath];
+
+        weakSelf.fileUrl    = tmpFileUrl;
+        weakSelf.filename   = filename;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             QLPreviewController* cntr = [[QLPreviewController alloc] init];
@@ -55,6 +53,11 @@
 - (NSURL*)previewItemURL
 {
     return self.fileUrl;
+}
+
+- (NSString*)previewItemTitle
+{
+    return self.filename;
 }
 
 @end
