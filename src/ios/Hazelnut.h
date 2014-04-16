@@ -10,4 +10,7 @@
 @property (strong, nonatomic) NSURL* fileUrl;
 @property (readonly) NSURL* previewItemURL;
 
+@property (strong, nonatomic) NSString* filename;
+@property (readonly) NSString* previewItemTitle;
+
 @end
