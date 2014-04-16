@@ -1,21 +1,17 @@
 Hazelnut
 ========
 
-Phonegap plugin to display files from URL. Fork from https://github.com/ti8mag/DocumentHandler
-
-It takes the filename as argument (issue with DocumentHandler when the URL doesn't have extension)
-
-It will return promise in the future.
+Phonegap plugin to display local files by providing URI. Inspiration from https://github.com/ti8mag/DocumentHandler
 
 ## Usage
 
 The plugin exposes one method on the window object: 
 
-    HazelnutOpen(url, filename, successCallback, errorCallback)
+    HazelnutOpen(filename, uri, successCallback, errorCallback)
 
 The parameters: 
 
-* successHandler: Should be a function. Is called when the file download is done and the file is shown to the user. 
-* failureHandler: Should be a function. Is called when there was a problem with downloading the file. 
-The function takes an argument which is usually 1 (undefined error). Also see Android section.
-* url: A URL to a document. Any cookies the system has for this server are passed along. This ensures that authenticated downloads also work. 
+* filename: allow to display another name that the actual name of the file. If null, it will take the actual name.
+* uri: A local URL to a document (format Absolute URL).
+* successHandler: Should be a function. Is called when the open of the file is done and the file is shown to the user. 
+* failureHandler: Should be a function. Is called when there was a problem with opening the file. 
